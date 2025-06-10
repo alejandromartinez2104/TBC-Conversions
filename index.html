@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belize Collection - Sales Analytics PWA</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Sales conversion analytics dashboard for The Belize Collection resort management">
+    <meta name="theme-color" content="#3D0C3A">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Belize Analytics">
+    
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="viva_belize_logo.jpeg">
+    <link rel="apple-touch-icon" href="viva_belize_logo.jpeg">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/charts.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/viva_belize_logo-DZdhxG0KKVRlmb7Nncsh5cDHelARdg.jpeg" alt="Viva Belize" class="logo-image">
+                    <div class="logo-text">
+                        <h1>Viva Belize</h1>
+                        <p>Sales Analytics</p>
+                    </div>
+                </div>
+                <button class="close-btn" onclick="toggleSidebar()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="nav">
+                <a href="index.html" class="nav-item active">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="guest-analytics.html" class="nav-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Guest Analytics
+                </a>
+                <a href="google-ads.html" class="nav-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+                    </svg>
+                    Google Ads
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    Settings
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="status-card">
+                    <div class="status-header">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+                        </svg>
+                        AI Bot & Google Ads
+                    </div>
+                    <div class="status-indicator">
+                        <div class="pulse-dot"></div>
+                        Active & Tracking
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <button class="menu-btn" onclick="toggleSidebar()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
+                        <div class="header-title">
+                            <h2>Sales Dashboard</h2>
+                            <p>AI & Google Ads Analytics</p>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <select class="select" id="resortSelector" onchange="updateResortData()">
+                            <option value="all">All Resorts</option>
+                            <option value="sleeping-giant">Sleeping Giant</option>
+                            <option value="jaguar-reef">Jaguar Reef</option>
+                            <option value="almond-beach">Almond Beach</option>
+                            <option value="colonial">Colonial</option>
+                            <option value="umaya">Umaya</option>
+                            <option value="the-banks">The Banks</option>
+                        </select>
+                        <button class="btn" onclick="exportData()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7,10 12,15 17,10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Export
+                        </button>
+                        <button class="btn btn-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard -->
+            <main class="dashboard">
+                <!-- Tabs -->
+                <div class="tabs">
+                    <div class="tab-list">
+                        <button class="tab-trigger active" onclick="switchTab('eod')">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span class="full-text">End of Day</span>
+                            <span class="short-text">EOD</span>
+                        </button>
+                        <button class="tab-trigger" onclick="switchTab('eow')">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span class="full-text">End of Week</span>
+                            <span class="short-text">EOW</span>
+                        </button>
+                        <button class="tab-trigger" onclick="switchTab('eoy')">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span class="full-text">End of Year</span>
+                            <span class="short-text">EOY</span>
+                        </button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content active" id="eod-content">
+                        <!-- Metrics Grid -->
+                        <div class="metrics-grid">
+                            <div class="card metric-card">
+                                <div class="card-content">
+                                    <div class="metric-header">
+                                        <div class="metric-title">Conversion Rate</div>
+                                        <button class="btn btn-icon" onclick="openFullScreen('Conversion Rate Details', 'conversionDetails')">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="metric-value">
+                                        <svg class="metric-icon text-purple" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12,6 12,12 16,14"></polyline>
+                                        </svg>
+                                        <div class="metric-number" id="conversionRate">24.8%</div>
+                                    </div>
+                                    <div class="metric-change">
+                                        <svg class="text-green" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                        <span class="badge badge-success">+2.1%</span>
+                                    </div>
+                                    <div class="metric-description">vs previous day</div>
+                                </div>
+                                <div class="metric-decoration bg-purple"></div>
+                            </div>
+
+                            <div class="card metric-card">
+                                <div class="card-content">
+                                    <div class="metric-header">
+                                        <div class="metric-title">Total Leads</div>
+                                        <button class="btn btn-icon" onclick="openFullScreen('Total Leads Details', 'leadsDetails')">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="metric-value">
+                                        <svg class="metric-icon text-blue" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                        <div class="metric-number" id="totalLeads">1,247</div>
+                                    </div>
+                                    <div class="metric-change">
+                                        <svg class="text-green" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                        <span class="badge badge-success">+156</span>
+                                    </div>
+                                    <div class="metric-description">Google Ads + AI Bot</div>
+                                </div>
+                                <div class="metric-decoration bg-blue"></div>
+                            </div>
+
+                            <div class="card metric-card">
+                                <div class="card-content">
+                                    <div class="metric-header">
+                                        <div class="metric-title">Revenue</div>
+                                        <button class="btn btn-icon" onclick="openFullScreen('Revenue Details', 'revenueDetails')">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="metric-value">
+                                        <svg class="metric-icon text-pink" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                        </svg>
+                                        <div class="metric-number" id="revenue">$89,420</div>
+                                    </div>
+                                    <div class="metric-change">
+                                        <svg class="text-green" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                        <span class="badge badge-success">+$12,340</span>
+                                    </div>
+                                    <div class="metric-description">From conversions</div>
+                                </div>
+                                <div class="metric-decoration bg-pink"></div>
+                            </div>
+
+                            <div class="card metric-card">
+                                <div class="card-content">
+                                    <div class="metric-header">
+                                        <div class="metric-title">Avg Booking</div>
+                                        <button class="btn btn-icon" onclick="openFullScreen('Average Booking Details', 'bookingDetails')">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="metric-value">
+                                        <svg class="metric-icon text-purple" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                                        </svg>
+                                        <div class="metric-number" id="avgBooking">$2,840</div>
+                                    </div>
+                                    <div class="metric-change">
+                                        <svg class="text-red" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                                            <polyline points="17 18 23 18 23 12"></polyline>
+                                        </svg>
+                                        <span class="badge badge-danger">-$120</span>
+                                    </div>
+                                    <div class="metric-description">Per booking</div>
+                                </div>
+                                <div class="metric-decoration bg-purple"></div>
+                            </div>
+                        </div>
+
+                        <!-- Charts Grid -->
+                        <div class="chart-grid">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="card-title">Conversion Trends - EOD</div>
+                                            <div class="card-description">Google Ads & AI Bot conversions</div>
+                                        </div>
+                                        <button class="btn btn-icon" onclick="openFullScreen('Conversion Chart', 'chartDetails')">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <canvas id="conversionChart" class="chart-canvas"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="card-title">Recent Activity</div>
+                                            <div class="card-description">Latest conversions & leads</div>
+                                        </div>
+                                        <button class="btn btn-icon" onclick="openFullScreen('Activity Details', 'activityDetails')">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div id="activityFeed">
+                                        <!-- Activity items will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Google Ads Overview -->
+                        <div class="google-ads-grid">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="card-title">Google Ads Performance</div>
+                                            <div class="card-description">Campaign metrics & demographics</div>
+                                        </div>
+                                        <button class="btn btn-icon" onclick="openFullScreen('Google Ads Details', 'googleAdsDetails')">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="ad-performance">
+                                        <div class="ad-metric">
+                                            <span class="ad-metric-label">Impressions</span>
+                                            <span class="ad-metric-value">45,230</span>
+                                        </div>
+                                        <div class="ad-metric">
+                                            <span class="ad-metric-label">Clicks</span>
+                                            <span class="ad-metric-value">2,847</span>
+                                        </div>
+                                        <div class="ad-metric">
+                                            <span class="ad-metric-label">CTR</span>
+                                            <span class="ad-metric-value">6.29%</span>
+                                        </div>
+                                        <div class="ad-metric">
+                                            <span class="ad-metric-label">CPC</span>
+                                            <span class="ad-metric-value">$2.34</span>
+                                        </div>
+                                        <div class="ad-metric">
+                                            <span class="ad-metric-label">Cost</span>
+                                            <span class="ad-metric-value">$6,662</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">Demographics</div>
+                                    <div class="card-description">Audience breakdown</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="demographics-grid">
+                                        <div class="demographic-item">
+                                            <span class="demographic-label">25-34 years</span>
+                                            <span class="demographic-value">32%</span>
+                                        </div>
+                                        <div class="demographic-item">
+                                            <span class="demographic-label">35-44 years</span>
+                                            <span class="demographic-value">28%</span>
+                                        </div>
+                                        <div class="demographic-item">
+                                            <span class="demographic-label">45-54 years</span>
+                                            <span class="demographic-value">24%</span>
+                                        </div>
+                                        <div class="demographic-item">
+                                            <span class="demographic-label">55+ years</span>
+                                            <span class="demographic-value">16%</span>
+                                        </div>
+                                        <div class="demographic-item">
+                                            <span class="demographic-label">Male</span>
+                                            <span class="demographic-value">45%</span>
+                                        </div>
+                                        <div class="demographic-item">
+                                            <span class="demographic-label">Female</span>
+                                            <span class="demographic-value">55%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EOW Tab Content -->
+                    <div class="tab-content" id="eow-content">
+                        <div class="metrics-grid">
+                            <div class="card metric-card">
+                                <div class="card-content">
+                                    <div class="metric-header">
+                                        <div class="metric-title">Conversion Rate</div>
+                                        <button class="btn btn-icon" onclick="openFullScreen('Weekly Conversion Rate', 'weeklyConversionDetails')">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="metric-value">
+                                        <svg class="metric-icon text-purple" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12,6 12,12 16,14"></polyline>
+                                        </svg>
+                                        <div class="metric-number">26.3%</div>
+                                    </div>
+                                    <div class="metric-change">
+                                        <svg class="text-green" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                        <span class="badge badge-success">+1.8%</span>
+                                    </div>
+                                    <div class="metric-description">vs previous week</div>
+                                </div>
+                                <div class="metric-decoration bg-purple"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EOY Tab Content -->
+                    <div class="tab-content" id="eoy-content">
+                        <div class="metrics-grid">
+                            <div class="card metric-card">
+                                <div class="card-content">
+                                    <div class="metric-header">
+                                        <div class="metric-title">Conversion Rate</div>
+                                        <button class="btn btn-icon" onclick="openFullScreen('Yearly Conversion Rate', 'yearlyConversionDetails')">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="metric-value">
+                                        <svg class="metric-icon text-purple" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12,6 12,12 16,14"></polyline>
+                                        </svg>
+                                        <div class="metric-number">28.7%</div>
+                                    </div>
+                                    <div class="metric-change">
+                                        <svg class="text-green" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                            <polyline points="17 6 23 6 23 12"></polyline>
+                                        </svg>
+                                        <span class="badge badge-success">+4.2%</span>
+                                    </div>
+                                    <div class="metric-description">vs previous year</div>
+                                </div>
+                                <div class="metric-decoration bg-purple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Full Screen Modal -->
+    <div class="modal-overlay" id="fullScreenModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Details</h3>
+                <button class="close-btn" onclick="closeFullScreen()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-header" id="toastTitle">Notification</div>
+        <div class="toast-body" id="toastMessage">Message content</div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

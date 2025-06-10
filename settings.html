@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Viva Belize</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Settings and configuration for The Belize Collection resort management">
+    <meta name="theme-color" content="#3D0C3A">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/charts.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/viva_belize_logo-DZdhxG0KKVRlmb7Nncsh5cDHelARdg.jpeg" alt="Viva Belize" class="logo-image">
+                    <div class="logo-text">
+                        <h1>Viva Belize</h1>
+                        <p>Settings</p>
+                    </div>
+                </div>
+                <button class="close-btn" onclick="toggleSidebar()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="nav">
+                <a href="index.html" class="nav-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="guest-analytics.html" class="nav-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Guest Analytics
+                </a>
+                <a href="google-ads.html" class="nav-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+                    </svg>
+                    Google Ads
+                </a>
+                <a href="settings.html" class="nav-item active">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    Settings
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="status-card">
+                    <div class="status-header">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        System Status
+                    </div>
+                    <div class="status-indicator">
+                        <div class="pulse-dot"></div>
+                        All Systems Online
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <button class="menu-btn" onclick="toggleSidebar()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
+                        <div class="header-title">
+                            <h2>Settings</h2>
+                            <p>System Configuration & Preferences</p>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button class="btn" onclick="saveSettings()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                <polyline points="17,21 17,13 7,13 7,21"></polyline>
+                                <polyline points="7,3 7,8 15,8"></polyline>
+                            </svg>
+                            Save Settings
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard -->
+            <main class="dashboard">
+                <!-- Settings Sections -->
+                <div class="chart-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">General Settings</div>
+                            <div class="card-description">Basic application configuration</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="display: grid; gap: 1rem;">
+                                <div>
+                                    <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Default Resort View</label>
+                                    <select class="select" style="width: 100%;">
+                                        <option value="all">All Resorts</option>
+                                        <option value="sleeping-giant">Sleeping Giant</option>
+                                        <option value="jaguar-reef">Jaguar Reef</option>
+                                        <option value="almond-beach">Almond Beach</option>
+                                        <option value="colonial">Colonial</option>
+                                        <option value="umaya">Umaya</option>
+                                        <option value="the-banks">The Banks</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Default Time Period</label>
+                                    <select class="select" style="width: 100%;">
+                                        <option value="eod">End of Day</option>
+                                        <option value="eow">End of Week</option>
+                                        <option value="eoy">End of Year</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Currency</label>
+                                    <select class="select" style="width: 100%;">
+                                        <option value="usd">USD ($)</option>
+                                        <option value="bzd">BZD (BZ$)</option>
+                                        <option value="eur">EUR (€)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Notifications</div>
+                            <div class="card-description">Alert and notification preferences</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="display: grid; gap: 1rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Email Notifications</span>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Push Notifications</span>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Daily Reports</span>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Weekly Summaries</span>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">API Integrations</div>
+                            <div class="card-description">External service connections</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="ad-performance">
+                                <div class="ad-metric">
+                                    <span class="ad-metric-label">Google Ads API</span>
+                                    <span class="ad-metric-value badge badge-success">Connected</span>
+                                </div>
+                                <div class="ad-metric">
+                                    <span class="ad-metric-label">Google Analytics</span>
+                                    <span class="ad-metric-value badge badge-success">Connected</span>
+                                </div>
+                                <div class="ad-metric">
+                                    <span class="ad-metric-label">Facebook Ads</span>
+                                    <span class="ad-metric-value badge badge-warning">Disconnected</span>
+                                </div>
+                                <div class="ad-metric">
+                                    <span class="ad-metric-label">Email Service</span>
+                                    <span class="ad-metric-value badge badge-success">Connected</span>
+                                </div>
+                                <div class="ad-metric">
+                                    <span class="ad-metric-label">CRM Integration</span>
+                                    <span class="ad-metric-value badge badge-success">Connected</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Data & Privacy</div>
+                            <div class="card-description">Data management and privacy settings</div>
+                        </div>
+                        <div class="card-content">
+                            <div style="display: grid; gap: 1rem;">
+                                <div>
+                                    <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Data Retention Period</label>
+                                    <select class="select" style="width: 100%;">
+                                        <option value="30">30 Days</option>
+                                        <option value="90">90 Days</option>
+                                        <option value="365" selected>1 Year</option>
+                                        <option value="unlimited">Unlimited</option>
+                                    </select>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Anonymous Analytics</span>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Cookie Tracking</span>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <button class="btn" style="width: 100%; margin-top: 0.5rem;">
+                                    Export All Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">System Information</div>
+                        <div class="card-description">Application details and version information</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="demographics-grid">
+                            <div class="demographic-item">
+                                <span class="demographic-label">Version</span>
+                                <span class="demographic-value">v5.0.0</span>
+                            </div>
+                            <div class="demographic-item">
+                                <span class="demographic-label">Last Updated</span>
+                                <span class="demographic-value">Dec 2024</span>
+                            </div>
+                            <div class="demographic-item">
+                                <span class="demographic-label">Database</span>
+                                <span class="demographic-value">Online</span>
+                            </div>
+                            <div class="demographic-item">
+                                <span class="demographic-label">Cache</span>
+                                <span class="demographic-value">Optimized</span>
+                            </div>
+                            <div class="demographic-item">
+                                <span class="demographic-label">Storage Used</span>
+                                <span class="demographic-value">2.4 GB</span>
+                            </div>
+                            <div class="demographic-item">
+                                <span class="demographic-label">Uptime</span>
+                                <span class="demographic-value">99.9%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Full Screen Modal -->
+    <div class="modal-overlay" id="fullScreenModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Details</h3>
+                <button class="close-btn" onclick="closeFullScreen()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-header" id="toastTitle">Notification</div>
+        <div class="toast-body" id="toastMessage">Message content</div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

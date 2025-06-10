@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads - Viva Belize</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Google Ads performance dashboard for The Belize Collection resort management">
+    <meta name="theme-color" content="#3D0C3A">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/charts.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/viva_belize_logo-DZdhxG0KKVRlmb7Nncsh5cDHelARdg.jpeg" alt="Viva Belize" class="logo-image">
+                    <div class="logo-text">
+                        <h1>Viva Belize</h1>
+                        <p>Google Ads</p>
+                    </div>
+                </div>
+                <button class="close-btn" onclick="toggleSidebar()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="nav">
+                <a href="index.html" class="nav-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="guest-analytics.html" class="nav-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Guest Analytics
+                </a>
+                <a href="google-ads.html" class="nav-item active">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+                    </svg>
+                    Google Ads
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    Settings
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="status-card">
+                    <div class="status-header">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+                        </svg>
+                        Google Ads API
+                    </div>
+                    <div class="status-indicator">
+                        <div class="pulse-dot"></div>
+                        Connected & Syncing
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <button class="menu-btn" onclick="toggleSidebar()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
+                        <div class="header-title">
+                            <h2>Google Ads Performance</h2>
+                            <p>Campaign Analytics & Optimization</p>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <select class="select" id="campaignSelector">
+                            <option value="all">All Campaigns</option>
+                            <option value="luxury-resort">Luxury Resort Experience</option>
+                            <option value="adventure-packages">Adventure Packages</option>
+                            <option value="beach-paradise">Beach Paradise</option>
+                            <option value="cultural-heritage">Cultural Heritage</option>
+                        </select>
+                        <button class="btn" onclick="exportData()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7,10 12,15 17,10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Export
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard -->
+            <main class="dashboard">
+                <!-- Google Ads Metrics -->
+                <div class="metrics-grid">
+                    <div class="card metric-card">
+                        <div class="card-content">
+                            <div class="metric-header">
+                                <div class="metric-title">Total Impressions</div>
+                                <button class="btn btn-icon" onclick="openFullScreen('Impressions Details', 'impressionsDetails')">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="metric-value">
+                                <svg class="metric-icon text-blue" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="M21 21l-4.35-4.35"></path>
+                                </svg>
+                                <div class="metric-number">2.4M</div>
+                            </div>
+                            <div class="metric-change">
+                                <svg class="text-green" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                                <span class="badge badge-success">+18.2%</span>
+                            </div>
+                            <div class="metric-description">This month</div>
+                        </div>
+                        <div class="metric-decoration bg-blue"></div>
+                    </div>
+
+                    <div class="card metric-card">
+                        <div class="card-content">
+                            <div class="metric-header">
+                                <div class="metric-title">Click-Through Rate</div>
+                                <button class="btn btn-icon" onclick="openFullScreen('CTR Details', 'ctrDetails')">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="metric-value">
+                                <svg class="metric-icon text-purple" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4"></path>
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                <div class="metric-number">6.29%</div>
+                            </div>
+                            <div class="metric-change">
+                                <svg class="text-green" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                                <span class="badge badge-success">+0.8%</span>
+                            </div>
+                            <div class="metric-description">Above industry avg</div>
+                        </div>
+                        <div class="metric-decoration bg-purple"></div>
+                    </div>
+
+                    <div class="card metric-card">
+                        <div class="card-content">
+                            <div class="metric-header">
+                                <div class="metric-title">Cost Per Click</div>
+                                <button class="btn btn-icon" onclick="openFullScreen('CPC Details', 'cpcDetails')">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="metric-value">
+                                <svg class="metric-icon text-pink" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                                <div class="metric-number">$2.34</div>
+                            </div>
+                            <div class="metric-change">
+                                <svg class="text-red" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                                    <polyline points="17 18 23 18 23 12"></polyline>
+                                </svg>
+                                <span class="badge badge-danger">+$0.12</span>
+                            </div>
+                            <div class="metric-description">Average CPC</div>
+                        </div>
+                        <div class="metric-decoration bg-pink"></div>
+                    </div>
+
+                    <div class="card metric-card">
+                        <div class="card-content">
+                            <div class="metric-header">
+                                <div class="metric-title">ROAS</div>
+                                <button class="btn btn-icon" onclick="openFullScreen('ROAS Details', 'roasDetails')">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="metric-value">
+                                <svg class="metric-icon text-green" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                                <div class="metric-number">4.2x</div>
+                            </div>
+                            <div class="metric-change">
+                                <svg class="text-green" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                                <span class="badge badge-success">+0.3x</span>
+                            </div>
+                            <div class="metric-description">Return on ad spend</div>
+                        </div>
+                        <div class="metric-decoration bg-green"></div>
+                    </div>
+                </div>
+
+                <!-- Campaign Performance Charts -->
+                <div class="chart-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="card-title">Campaign Performance Trends</div>
+                                    <div class="card-description">Impressions, clicks, and conversions over time</div>
+                                </div>
+                                <button class="btn btn-icon" onclick="openFullScreen('Campaign Performance Chart', 'campaignChartDetails')">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <canvas id="campaignChart" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="card-title">Keyword Performance</div>
+                                    <div class="card-description">Top performing keywords and search terms</div>
+                                </div>
+                                <button class="btn btn-icon" onclick="openFullScreen('Keyword Performance', 'keywordDetails')">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <canvas id="keywordChart" class="chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campaign Details -->
+                <div class="google-ads-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Active Campaigns</div>
+                            <div class="card-description">Current campaign status and performance</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="ad-performance">
+                                <div class="ad-metric">
+                                    <span class="ad-metric-label">Luxury Resort Experience</span>
+                                    <span class="ad-metric-value badge badge-success">Active</span>
+                                </div>
+                                <div class="ad-metric">
+                                    <span class="ad-metric-label">Adventure Packages</span>
+                                    <span class="ad-metric-value badge badge-success">Active</span>
+                                </div>
+                                <div class="ad-metric">
+                                    <span class="ad-metric-label">Beach Paradise</span>
+                                    <span class="ad-metric-value badge badge-success">Active</span>
+                                </div>
+                                <div class="ad-metric">
+                                    <span class="ad-metric-label">Cultural Heritage</span>
+                                    <span class="ad-metric-value badge badge-warning">Paused</span>
+                                </div>
+                                <div class="ad-metric">
+                                    <span class="ad-metric-label">Honeymoon Packages</span>
+                                    <span class="ad-metric-value badge badge-success">Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Top Keywords</div>
+                            <div class="card-description">Highest performing search terms</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="demographics-grid">
+                                <div class="demographic-item">
+                                    <span class="demographic-label">belize luxury resort</span>
+                                    <span class="demographic-value">$2.34</span>
+                                </div>
+                                <div class="demographic-item">
+                                    <span class="demographic-label">belize beach resort</span>
+                                    <span class="demographic-value">$2.12</span>
+                                </div>
+                                <div class="demographic-item">
+                                    <span class="demographic-label">belize adventure vacation</span>
+                                    <span class="demographic-value">$1.98</span>
+                                </div>
+                                <div class="demographic-item">
+                                    <span class="demographic-label">belize honeymoon</span>
+                                    <span class="demographic-value">$2.67</span>
+                                </div>
+                                <div class="demographic-item">
+                                    <span class="demographic-label">belize all inclusive</span>
+                                    <span class="demographic-value">$2.45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Full Screen Modal -->
+    <div class="modal-overlay" id="fullScreenModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Details</h3>
+                <button class="close-btn" onclick="closeFullScreen()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-header" id="toastTitle">Notification</div>
+        <div class="toast-body" id="toastMessage">Message content</div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
