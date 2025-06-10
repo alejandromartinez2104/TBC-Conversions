@@ -528,4 +528,12 @@
     <script src="js/charts.js"></script>
     <script src="js/main.js"></script>
 </body>
+    <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(() => console.log('Service Worker Registered'))
+      .catch(err => console.error('Service Worker registration failed:', err));
+  }
+</script>
+
 </html>
