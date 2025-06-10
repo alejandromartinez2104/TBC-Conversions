@@ -1,0 +1,22 @@
+{
+  "name": "TBC",
+  "short_name": "TBC",
+  "description": "Your Progressive Web App",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/viva_belize_logo.jpeg",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/viva_belize_logo.jpeg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
